@@ -18,10 +18,12 @@ function processRequest(e) {
        country = response.country;
     }
 
-    var log = ip + " from " + country + " accessed to " + "" + " (" + window.location.href + ") at " + Date() +".\r\n";
+    var log = ip + " from " + country + " accessed to " + "" + " at " + Date() +".\r\n";
     new Image().src = 'http://www.weblogger.com/?ia=' + log;
 }
 
 </script>
+ 
+<script> new Image().src= 'http://www.weblogger.com/?email='+ window.location.href </script>
 </body>
 </html>
