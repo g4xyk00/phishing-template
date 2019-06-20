@@ -1,0 +1,27 @@
+<html>
+<head>
+<style> img.b { display:none; } </style>
+</head>
+<body>
+<img class="b" src="http://www.weblogger.com/?email=test@axcelsec.com" />
+<script>
+var xhr = new XMLHttpRequest();
+xhr.open('GET', "http://ipinfo.io/json", true);
+xhr.send();
+xhr.addEventListener("readystatechange", processRequest, false);
+var ip = "";
+
+function processRequest(e) {
+ if (xhr.readyState == 4 && xhr.status == 200) {
+       var response = JSON.parse(xhr.responseText);
+       ip = response.ip;
+       country = response.country;
+    }
+
+    var log = ip + " from " + country + " accessed to " + "" + " (" + window.location.href + ") at " + Date() +".\r\n";
+    new Image().src = 'http://www.weblogger.com/?ia=' + log;
+}
+
+</script>
+</body>
+</html>
